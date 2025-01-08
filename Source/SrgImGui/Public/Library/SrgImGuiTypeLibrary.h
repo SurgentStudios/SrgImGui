@@ -1,4 +1,4 @@
-// © Surgent Studios
+// Â© Surgent Studios
 
 #pragma once
 
@@ -133,6 +133,7 @@ public:
 	{
 		static_assert(TIsEnum<EnumType>::Value, "Should only call this with enum types");
 		static_assert(sizeof(EnumType) == sizeof(uint8), "EnumType is not a uint8");
+		static_assert(static_cast<int32>(EnumType(-1)) == 0xFF, "EnumType is not a uint8");
 		DrawVarStart(Name);
 		const bool WasModified =
 			SrgImGuiTypeDrawer::DrawEnumValue(reinterpret_cast<uint8&>(Value), StaticEnum<EnumType>(), Mutable);
